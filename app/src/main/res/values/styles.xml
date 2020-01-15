@@ -1,0 +1,79 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="TextEmpty" parent="FontRegular">
+        <item name="android:textSize">@dimen/font_20sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextItem" parent="FontBold">
+        <item name="android:textSize">@dimen/font_15sp</item>
+        <item name="android:textColor">@color/text_item</item>
+    </style>
+    
+    <style name="TextInputAppearance" parent="Widget.Design.TextInputLayout">
+        <item name="android:colorControlActivated">@android:color/white</item>
+        <item name="android:colorControlHighlight">@android:color/white</item>
+        <item name="android:colorControlNormal">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="android:textAppearance">@style/LoginEdit</item>
+    </style>
+
+    <style name="LoginEdit" parent="FontRegular">
+        <item name="android:textSize">@dimen/font_20sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="android:backgroundTint">@android:color/white</item>
+    </style>
+
+    <style name="TextHeader" parent="FontBold">
+        <item name="android:textSize">@dimen/font_24sp</item>
+        <item name="android:textColor">@color/header_text</item>
+    </style>
+
+    <style name="TextSubHeader" parent="FontBold">
+        <item name="android:textSize">@dimen/font_18sp</item>
+        <item name="android:textColor">@color/subheader_text</item>
+    </style>
+
+    <style name="IntroTitle" parent="FontBold">
+        <item name="android:textSize">@dimen/font_26sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="IntroSubTitle" parent="FontLight">
+        <item name="android:textSize">@dimen/font_24sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="ConfirmButtonText" parent="FontRegular">
+        <item name="android:textSize">@dimen/font_20sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!--Fonts-->
+
+    <style name="FontLight">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/light</item>
+    </style>
+
+    <style name="FontRegular">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/regular</item>
+    </style>
+
+    <style name="FontBold">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+</resources>

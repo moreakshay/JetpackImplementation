@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">TMDB</string>
+
+    <!--Onboarding-->
+    <string name="get_the_first">Get the first</string>
+    <string name="movie_tv_information">Movie &amp; TV information</string>
+    <string name="know_the_movie">Know the movie</string>
+    <string name="worth_watching">if worth watching</string>
+    <string name="real_time">Real-time</string>
+    <string name="update_movie_trailer">Update movie Trailer</string>
+
+    <!--General-->
+    <string name="button_next">Next</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="movies">MOVIES</string>
+    <string name="now">Now</string>
+    <string name="popular">Popular</string>
+    <string name="more">MORE</string>
+
+</resources>
