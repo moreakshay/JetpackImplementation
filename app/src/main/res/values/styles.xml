@@ -8,7 +8,27 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="TextEmpty" parent="FontRegular">
+<!--    Bottom Navigation Text Style-->
+
+    <style name="Widget.BottomNavigationView"
+        parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!--Text Styles-->
+
+    <style name="TextUserName" parent="FontBold">
+        <item name="android:textSize">@dimen/font_24sp</item>
+        <item name="android:textColor">@color/text_item</item>
+    </style>
+
+    <style name="TextName" parent="FontBold">
+        <item name="android:textSize">@dimen/font_30sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextDefault" parent="FontRegular">
         <item name="android:textSize">@dimen/font_20sp</item>
         <item name="android:textColor">@android:color/white</item>
     </style>

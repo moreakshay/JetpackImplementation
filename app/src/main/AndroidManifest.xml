@@ -2,15 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="moreakshay.com.tmdb">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application xmlns:tools="http://schemas.android.com/tools"
         android:allowBackup="true"
-        android:icon="@drawable/ic_film_line"
+        android:icon="@drawable/ic_launcher_line"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/ic_film_line"
+        android:roundIcon="@drawable/ic_launcher_line"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+        </activity>
+        <activity android:name=".intro.IntroductionActivity" />
+        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".home.HomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -18,10 +24,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".intro.IntroductionActivity" />
-        <activity android:name=".login.LoginActivity" />
-        <activity android:name=".home.HomeActivity" />
-        <activity android:name="moreakshay.com.tmdb.home.ListActivity" />
-        <activity android:name="moreakshay.com.tmdb.home.DetailActivity" />
+        <activity android:name=".home.ListActivity" />
+        <activity android:name=".home.DetailActivity" />
+        <activity android:name=".home.SearchActivity"/>
+
+        <!--        Receivers-->
+        <receiver android:name=".base.listeners.NetworkBroadcast">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
     </application>
+
 </manifest>

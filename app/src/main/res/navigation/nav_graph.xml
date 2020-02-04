@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/moviesFragment">
+
+<!--    id of the destination should match the
+        id of the menu item for bottomNavView to navigate-->
+    <fragment
+        android:id="@+id/moviesFragment"
+        android:name="moreakshay.com.tmdb.home.fragments.MoviesFragment"
+        android:label="MoviesFragment" />
+    <fragment
+        android:id="@+id/teleFragment"
+        android:name="moreakshay.com.tmdb.home.fragments.TeleFragment"
+        android:label="TeleFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="moreakshay.com.tmdb.home.fragments.ProfileFragment"
+        android:label="ProfileFragment" />
+
+</navigation>

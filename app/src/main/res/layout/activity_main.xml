@@ -12,7 +12,7 @@
     <ImageView
         android:layout_width="@dimen/_190dp"
         android:layout_height="@dimen/_190dp"
-        android:src="@drawable/ic_film_solid"
+        android:src="@drawable/ic_launcher_solid"
         app:layout_constraintLeft_toLeftOf="@id/iv_tmdb_logo"
         app:layout_constraintRight_toRightOf="@id/iv_tmdb_logo"
         app:layout_constraintTop_toTopOf="parent"

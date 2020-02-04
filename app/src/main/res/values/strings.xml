@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TMDB</string>
+    <string name="app_name">Mine</string>
 
     <!--Onboarding-->
     <string name="get_the_first">Get the first</string>
@@ -18,5 +18,11 @@
     <string name="now">Now</string>
     <string name="popular">Popular</string>
     <string name="more">MORE</string>
+    <string name="full_cast_crew"><![CDATA[Full Cast & Crew]]></string>
+    <string name="tv">TV</string>
+    <string name="profile">Profile</string>
+    <string name="results">results</string>
+
+    <string name="API_KEY">4396f615b89a743e4145aef1cbc43497</string>
 
 </resources>
