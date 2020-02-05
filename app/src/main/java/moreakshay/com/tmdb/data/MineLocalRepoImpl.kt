@@ -9,12 +9,17 @@ import java.util.concurrent.Callable
 
 class MineLocalRepoImpl: MineLocalRepo{
 
+
     private var movieDao: MovieDao
     private var teleDao: TeleDao
 
     constructor(movieDao: MovieDao, teleDao: TeleDao){
         this.movieDao = movieDao
         this.teleDao = teleDao
+    }
+
+    override fun getAllMovies(): ArrayList<Movie> {
+                return movieDao.selectAll() as ArrayList<Movie>
     }
 
     override fun getAllShows(showType: Int): Observable<List<out Show>> {
@@ -30,8 +35,8 @@ class MineLocalRepoImpl: MineLocalRepo{
 
     }
 
-    override fun addAllShows(movie: List<Movie>): Any {
-        return movieDao.insertAll(movie)
+    override fun addAllShows(movies: List<Movie>): Any {
+        return movieDao.insertAll(movies)
     }
 
 

@@ -2,6 +2,7 @@ package moreakshay.com.tmdb.webservices
 
 import io.reactivex.Observable
 import moreakshay.com.tmdb.data.models.Movie
+import moreakshay.com.tmdb.data.models.NowPlaying
 import moreakshay.com.tmdb.data.models.RequestToken
 
 class MineRemoteRepoImpl: BaseRemote(),  MineRemoteRepo{
@@ -10,7 +11,7 @@ class MineRemoteRepoImpl: BaseRemote(),  MineRemoteRepo{
         return create().getToken(param)
     }
 
-    override fun getNowPlayingMovies(param: HashMap<String, Any>): Observable<List<Movie>> {
+    override fun getNowPlayingMovies(param: String): Observable<NowPlaying> {
         return create().getNowMovies(param)
     }
 

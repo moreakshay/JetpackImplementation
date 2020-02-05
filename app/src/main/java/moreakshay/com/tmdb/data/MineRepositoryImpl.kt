@@ -4,10 +4,9 @@ import android.util.Log
 import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
-import moreakshay.com.tmdb.constants.Constants
 import moreakshay.com.tmdb.data.models.Movie
+import moreakshay.com.tmdb.data.models.NowPlaying
 import moreakshay.com.tmdb.data.models.RequestToken
 import moreakshay.com.tmdb.webservices.MineRemoteRepo
 
@@ -40,10 +39,33 @@ class MineRepositoryImpl(var mineLocalRepo: MineLocalRepo, var mineRemoteRepo: M
         return rt
     }
 
-    override fun getNowPlayingMovies(param: HashMap<String, Any>): Observable<List<Movie>> {
-        return Observable.mergeDelayError(mineRemoteRepo.getNowPlayingMovies(param).doOnNext(Consumer<List<Movie>>(){
-            mineLocalRepo.addAllShows(it)
-        }).subscribeOn(Schedulers.io()), mineLocalRepo.getAllShows(Constants.MOVIE).subscribeOn(Schedulers.io()))
+
+    override fun getNowPlayingMovies(key: String): ArrayList<Movie> {
+        var list = ArrayList<Movie>()
+        mineRemoteRepo.getNowPlayingMovies(key)
+                .subscribeOn(Schedulers.io())
+                .subscribe(object: Observer<NowPlaying>{
+                    override fun onComplete() {
+                    }
+
+                    override fun onSubscribe(d: Disposable?) {
+                    }
+
+                    override fun onNext(value: NowPlaying?) {
+                        value?.results?.forEach {
+                            Log.e("Bhenchod", it.originalName)
+                            list.add(it)
+                        }
+                        mineLocalRepo.addAllShows(list)
+                        list.clear()
+                        list.addAll(mineLocalRepo.getAllMovies())
+                    }
+
+                    override fun onError(e: Throwable?) {
+                    }
+
+                })
+            return list
     }
 
     override fun getPopularMovies(param: HashMap<String, Any>): Observable<List<Movie>> {

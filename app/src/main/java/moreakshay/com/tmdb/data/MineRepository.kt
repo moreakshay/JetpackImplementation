@@ -7,6 +7,6 @@ import moreakshay.com.tmdb.data.models.RequestToken
 interface MineRepository{
 
     fun getToken(param: String): RequestToken
-    fun getNowPlayingMovies(param: HashMap<String, Any>): Observable<List<Movie>>
+    fun getNowPlayingMovies(key: String): ArrayList<Movie>
     fun getPopularMovies(param: HashMap<String, Any>): Observable<List<Movie>>
 }

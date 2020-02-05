@@ -7,11 +7,13 @@ import moreakshay.com.tmdb.data.models.Show
 
 interface MineLocalRepo {
 
+    fun getAllMovies(): ArrayList<Movie>
+
     fun getAllShows(showType: Int = Constants.MOVIE): Observable<List<out Show>>
 
     fun getShow(showType: Int = Constants.MOVIE, id: Int): Movie
 
-    fun addAllShows(shows: List<Movie>): Any
+    fun addAllShows(movies: List<Movie>): Any
 
 
 

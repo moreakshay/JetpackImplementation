@@ -9,6 +9,9 @@ class Constants {
         const val MOVIE = 0
         const val TELE = 1
 
+        //show flags
+        const val NOW_PLAYING = 1
+        const val POPULAR = 2
 
     }
 }
