@@ -1,9 +1,9 @@
-package moreakshay.com.tmdb.webservices
+package moreakshay.com.tmdb.data.remote
 
 import io.reactivex.Observable
 import moreakshay.com.tmdb.data.models.Movie
-import moreakshay.com.tmdb.data.models.NowPlaying
-import moreakshay.com.tmdb.data.models.RequestToken
+import moreakshay.com.tmdb.webservices.models.NowPlaying
+import moreakshay.com.tmdb.webservices.models.RequestToken
 
 interface MineRemoteRepo {
 

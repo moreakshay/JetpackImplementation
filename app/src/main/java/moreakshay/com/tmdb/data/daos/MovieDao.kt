@@ -8,11 +8,11 @@ import moreakshay.com.tmdb.data.models.Movie
 @Dao
 interface MovieDao: BaseDao<Movie> {
     @Query("SELECT * FROM " + DBConstants.MOVIE_TABLENAME)
-    fun selectAll(): List<Movie>
+    fun getAllMovies(): List<Movie>
 
     @Query("SELECT * FROM " + DBConstants.MOVIE_TABLENAME + " WHERE " + DBConstants.ID +
             " = :movieId")
-    fun selectShow(movieId: Int): Movie
+    fun getMovie(movieId: Int): Movie
 
     
 

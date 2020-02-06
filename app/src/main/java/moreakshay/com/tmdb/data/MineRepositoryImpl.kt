@@ -5,10 +5,12 @@ import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import moreakshay.com.tmdb.constants.Constants
+import moreakshay.com.tmdb.data.local.MineLocalRepo
 import moreakshay.com.tmdb.data.models.Movie
-import moreakshay.com.tmdb.data.models.NowPlaying
-import moreakshay.com.tmdb.data.models.RequestToken
-import moreakshay.com.tmdb.webservices.MineRemoteRepo
+import moreakshay.com.tmdb.data.remote.MineRemoteRepo
+import moreakshay.com.tmdb.webservices.models.NowPlaying
+import moreakshay.com.tmdb.webservices.models.RequestToken
 
 class MineRepositoryImpl(var mineLocalRepo: MineLocalRepo, var mineRemoteRepo: MineRemoteRepo): MineRepository {
 
@@ -54,11 +56,15 @@ class MineRepositoryImpl(var mineLocalRepo: MineLocalRepo, var mineRemoteRepo: M
                     override fun onNext(value: NowPlaying?) {
                         value?.results?.forEach {
                             Log.e("Bhenchod", it.originalName)
+                            it.flag = Constants.NOW_PLAYING
                             list.add(it)
                         }
-                        mineLocalRepo.addAllShows(list)
+                        mineLocalRepo.addAllMovies(list)
                         list.clear()
                         list.addAll(mineLocalRepo.getAllMovies())
+                        mineLocalRepo.getAllMovies().forEach {
+                            Log.e("Bhenchod database se", it.originalName)
+                        }
                     }
 
                     override fun onError(e: Throwable?) {

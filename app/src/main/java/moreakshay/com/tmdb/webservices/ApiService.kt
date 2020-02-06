@@ -2,8 +2,8 @@ package moreakshay.com.tmdb.webservices
 
 import io.reactivex.Observable
 import moreakshay.com.tmdb.data.models.Movie
-import moreakshay.com.tmdb.data.models.NowPlaying
-import moreakshay.com.tmdb.data.models.RequestToken
+import moreakshay.com.tmdb.webservices.models.NowPlaying
+import moreakshay.com.tmdb.webservices.models.RequestToken
 import retrofit2.http.*
 
 interface ApiService{

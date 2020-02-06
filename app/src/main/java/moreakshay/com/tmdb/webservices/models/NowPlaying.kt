@@ -1,7 +1,8 @@
-package moreakshay.com.tmdb.data.models
+package moreakshay.com.tmdb.webservices.models
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import moreakshay.com.tmdb.data.models.Movie
 
 
 class NowPlaying {

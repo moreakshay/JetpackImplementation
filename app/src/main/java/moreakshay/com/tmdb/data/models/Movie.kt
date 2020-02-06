@@ -10,7 +10,8 @@ class Movie(id: Int,
             backdropPath: String,
             voteAverage: Double,
             overview: String,
-            releaseDate: String) :
+            releaseDate: String,
+            var flag: Int) :
         Show(id,
             originalName,
             posterPath,
