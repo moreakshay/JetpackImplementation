@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="moreakshay.com.tmdb">
+    package="moreakshay.com.mine">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application xmlns:tools="http://schemas.android.com/tools"
+        android:name=".MineApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher_line"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher_line"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="moreakshay.com.mine.ui.intro.MainActivity">
         </activity>
-        <activity android:name=".intro.IntroductionActivity" />
-        <activity android:name=".login.LoginActivity" />
-        <activity android:name=".home.HomeActivity" >
+        <activity android:name="moreakshay.com.mine.ui.intro.IntroductionActivity" />
+        <activity android:name="moreakshay.com.mine.ui.login.LoginActivity" />
+        <activity android:name="moreakshay.com.mine.ui.home.activities.HomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -24,12 +25,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home.ListActivity" />
-        <activity android:name=".home.DetailActivity" />
-        <activity android:name=".home.SearchActivity"/>
+        <activity android:name="moreakshay.com.mine.ui.home.activities.ListActivity" />
+        <activity android:name="moreakshay.com.mine.ui.home.activities.DetailActivity" />
+        <activity android:name="moreakshay.com.mine.ui.home.activities.SearchActivity"/>
 
         <!--        Receivers-->
-        <receiver android:name=".base.listeners.NetworkBroadcast">
+        <receiver android:name="moreakshay.com.mine.base.listeners.NetworkBroadcast">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />

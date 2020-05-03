@@ -4,11 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".intro.IntroductionActivity">
+    tools:context=".ui.intro.IntroductionActivity">
 
-    <moreakshay.com.tmdb.base.SwipeLockableViewPager
-        android:id="@+id/vpIntro"
+    <fragment
+        android:id="@+id/fr_container"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
