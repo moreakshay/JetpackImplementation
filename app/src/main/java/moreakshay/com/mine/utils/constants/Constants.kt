@@ -3,7 +3,6 @@ package moreakshay.com.mine.utils.constants
 class Constants {
 
     companion object{
-        const val BASE_URL = "https://api.themoviedb.org/3/"
         var requestToken: String? = ""
 
         const val MOVIE = 0

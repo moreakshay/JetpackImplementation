@@ -2,10 +2,9 @@ package moreakshay.com.mine.data.remote.dtos
 
 
 import com.google.gson.annotations.SerializedName
-import moreakshay.com.mine.utils.constants.Constants
 import moreakshay.com.mine.data.dtos.MovieEntity
 
-data class NowPlayingNetwork(
+data class MoviesResponse(
         @SerializedName("dates")
     val dates: DatesResponse,
         @SerializedName("page")
@@ -18,15 +17,15 @@ data class NowPlayingNetwork(
     val totalResults: Int
 )
 
-fun NowPlayingNetwork.asMovieEntities(): Array<MovieEntity>{
+fun MoviesResponse.asMovieEntities(flag: Int): Array<MovieEntity>{
     return results.map {
         MovieEntity(id = it.id,
-                originalName = it.originalTitle,
-                posterPath = it.posterPath,
-                backdropPath = it.backdropPath,
-                voteAverage = it.voteAverage,
-                overview = it.overview,
+                originalName = it.originalTitle ?: "",
+                posterPath = it.posterPath ?: "",
+                backdropPath = it.backdropPath ?: "",
+                voteAverage = it.voteAverage.toDouble(),
+                overview = it.overview ?: "",
                 releaseDate = it.releaseDate,
-                flag = Constants.NOW_PLAYING)
+                flag = flag)
     }.toTypedArray()
 }

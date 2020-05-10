@@ -3,8 +3,8 @@ package moreakshay.com.mine.data.local.daos
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
-import moreakshay.com.mine.utils.constants.DBConstants
 import moreakshay.com.mine.data.dtos.MovieEntity
+import moreakshay.com.mine.utils.constants.DBConstants
 
 @Dao
 interface MovieDao: BaseDao<MovieEntity> {

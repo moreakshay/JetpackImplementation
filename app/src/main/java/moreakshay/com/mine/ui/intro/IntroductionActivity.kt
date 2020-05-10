@@ -11,7 +11,5 @@ class IntroductionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_introduction)
 
         var pagerAdapter = IntroAdapter(supportFragmentManager)
-        vpIntro.setSwipePagingEnabled(true)
-        vpIntro.adapter = pagerAdapter
     }
 }

@@ -8,7 +8,7 @@
         id of the menu item for bottomNavView to navigate-->
     <fragment
         android:id="@+id/moviesFragment"
-        android:name="moreakshay.com.mine.ui.home.fragments.MoviesFragment"
+        android:name="moreakshay.com.mine.ui.home.movies.MoviesFragment"
         android:label="MoviesFragment" />
     <fragment
         android:id="@+id/teleFragment"

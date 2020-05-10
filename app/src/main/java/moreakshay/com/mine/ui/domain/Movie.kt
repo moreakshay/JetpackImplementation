@@ -7,4 +7,23 @@ data class Movie(val id: Int,
                  val voteAverage: Double,
                  val overview: String,
                  val releaseDate: String,
-                 var flag: Int) {}
+                 var flag: Int): Show {
+
+    override fun getShowId() = id
+
+    override fun getShowName() = originalName
+
+    override fun getShowPosterPath() = posterPath
+
+    override fun getShowBackdropPath() = backdropPath
+
+    override fun getShowVoteAverage() = voteAverage
+
+    override fun getShowOverview() = overview
+
+    override fun getShowReleaseDate() = releaseDate
+
+    override fun getShowFlag() = flag
+}
+
+fun List<Movie>.asShows(): List<Show> = map { it as Show }

@@ -21,6 +21,8 @@ class DBConstants {
         const val OVERVIEW: String = "overview"
         const val RELEASE_DATE: String = "release_date"
         const val FLAG: String = "flag"
+        const val IS_FAV: String = "is_fav"
+        const val IS_LIKED: String = "is_liked"
 
         // Credits fields
 

@@ -1,8 +1,8 @@
 package moreakshay.com.mine.data.dtos
 
 import androidx.room.Entity
-import moreakshay.com.mine.utils.constants.DBConstants
 import moreakshay.com.mine.ui.domain.Movie
+import moreakshay.com.mine.utils.constants.DBConstants
 
 @Entity(tableName = DBConstants.MOVIE_TABLENAME, primaryKeys = arrayOf(DBConstants.ID))
 data class MovieEntity(
