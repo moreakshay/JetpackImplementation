@@ -1,4 +1,4 @@
-package moreakshay.com.mine.utils
+package moreakshay.com.mine.bindings
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

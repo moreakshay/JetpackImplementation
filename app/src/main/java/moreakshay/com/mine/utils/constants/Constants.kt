@@ -13,6 +13,10 @@ class Constants {
         const val POPULAR = 2
         const val UPCOMING = 3
 
+        //viewholder flags
+        const val BANNER = 0
+        const val POSTER = 1
+
     }
 }
 

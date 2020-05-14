@@ -11,6 +11,7 @@ import moreakshay.com.mine.MineApplication
 import moreakshay.com.mine.databinding.FragmentMoviesBinding
 import moreakshay.com.mine.ui.home.adapters.ShowAdapter
 import moreakshay.com.mine.ui.home.adapters.ShowClickListener
+import moreakshay.com.mine.utils.constants.Constants
 
 public class MoviesFragment : Fragment() {
 
@@ -24,11 +25,11 @@ public class MoviesFragment : Fragment() {
         viewModel.getUpComingMovies()
         viewModel.getPopularMovies()
         binding.viewModel = viewModel
-        val showAdapter = ShowAdapter(ShowClickListener { show -> Log.d("BHENCHOD", show.getShowName()) }, 1)
-        val popAdapter = ShowAdapter(ShowClickListener { show -> Log.d("BHENCHOD", show.getShowName()) }, 1)
+        val showAdapter = ShowAdapter(ShowClickListener { show -> Log.d("BHENCHOD", show.getShowName()) })
+        val popAdapter = ShowAdapter(ShowClickListener { show -> Log.d("BHENCHOD", show.getShowName()) })
         binding.rvNow.adapter = showAdapter
         binding.rvPopular.adapter = popAdapter
-        binding.rvBanner.adapter = ShowAdapter(ShowClickListener { show -> Log.d("BHENCHOD", show.getShowName()) }, 0)
+        binding.rvBanner.adapter = ShowAdapter(ShowClickListener { show -> Log.d("BHENCHOD", show.getShowName()) }, Constants.BANNER)
         return binding.root
     }
 
