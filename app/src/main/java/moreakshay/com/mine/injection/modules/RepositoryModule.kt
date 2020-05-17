@@ -2,8 +2,7 @@ package moreakshay.com.mine.injection.modules
 
 import android.content.Context
 import androidx.room.Room
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import com.android.example.github.util.LiveDataCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import moreakshay.com.mine.BuildConfig
@@ -30,10 +29,10 @@ class RepositoryModule {
     @ApplicationScope
     @Provides
     fun provideRetrofit(client: OkHttpClient): Retrofit {
-        val adapter = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
         return Retrofit.Builder()
                 .baseUrl(ApiConstants.BASE_URL)
                 .client(client)
+                .addCallAdapterFactory(LiveDataCallAdapterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
     }

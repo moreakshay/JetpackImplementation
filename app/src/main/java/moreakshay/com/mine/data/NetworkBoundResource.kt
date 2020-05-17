@@ -25,6 +25,9 @@ import com.android.example.github.api.ApiEmptyResponse
 import com.android.example.github.api.ApiErrorResponse
 import com.android.example.github.api.ApiResponse
 import com.android.example.github.api.ApiSuccessResponse
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import moreakshay.com.mine.data.Resource
 
 /**
@@ -65,7 +68,8 @@ abstract class NetworkBoundResource<ResultType, RequestType>
     }
 
     private fun fetchFromNetwork(dbSource: LiveData<ResultType>) {
-        val apiResponse = createCall()
+        lateinit var apiResponse: LiveData<ApiResponse<RequestType>>
+        CoroutineScope(Dispatchers.IO).launch { apiResponse = createCall() }
         // we re-attach dbSource as a new source, it will dispatch its latest value quickly
         result.addSource(dbSource) { newData ->
             setValue(Resource.loading(newData))
@@ -122,5 +126,5 @@ abstract class NetworkBoundResource<ResultType, RequestType>
     protected abstract fun loadFromDb(): LiveData<ResultType>
 
     @MainThread
-    protected abstract fun createCall(): LiveData<ApiResponse<RequestType>>
+    protected abstract suspend fun createCall(): LiveData<ApiResponse<RequestType>>
 }

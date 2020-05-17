@@ -1,5 +1,7 @@
 package moreakshay.com.mine.data.remote
 
+import androidx.lifecycle.LiveData
+import com.android.example.github.api.ApiResponse
 import moreakshay.com.mine.data.remote.dtos.MoviesResponse
 import retrofit2.http.*
 
@@ -21,16 +23,18 @@ interface ApiService{
     suspend fun getVideos(@Path("id") id: String)
 
     @GET("movie/upcoming")
-    suspend fun getUpComingMovies(): MoviesResponse
+    suspend fun getUpComingMovies(): LiveData<ApiResponse<MoviesResponse>>
 
     @GET("movie/now_playing")
-    suspend fun getNowMovies(): MoviesResponse
+    suspend fun getNowMovies(): LiveData<ApiResponse<MoviesResponse>>
 
     @GET("movie/popular")
-    suspend fun getPopularMovies(): MoviesResponse
+    suspend fun getPopularMovies(): LiveData<ApiResponse<MoviesResponse>>
 
     @GET("movie/{movie_id}")
     suspend fun getMovieDetails(@Path("movie_id") id: String)
+
+
 
     //TV
 

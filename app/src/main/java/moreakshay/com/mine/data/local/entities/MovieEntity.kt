@@ -1,5 +1,7 @@
 package moreakshay.com.mine.data.dtos
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
 import androidx.room.Entity
 import moreakshay.com.mine.ui.domain.Movie
 import moreakshay.com.mine.utils.constants.DBConstants
@@ -28,3 +30,6 @@ fun List<MovieEntity>.asDomainModel(): List<Movie> {
         )
     }
 }
+
+fun LiveData<List<MovieEntity>>.asDomainModel(): LiveData<List<Movie>>
+    = Transformations.map(this){ it.asDomainModel() }
