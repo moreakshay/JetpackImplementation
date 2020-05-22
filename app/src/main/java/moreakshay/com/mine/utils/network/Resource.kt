@@ -1,6 +1,6 @@
-package moreakshay.com.mine.data
+package moreakshay.com.mine.utils.network
 
-import moreakshay.com.mine.data.Status.*
+import moreakshay.com.mine.utils.network.Status.*
 
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
     companion object {

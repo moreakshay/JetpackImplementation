@@ -44,7 +44,7 @@ class ShowAdapter(val clickListener: ShowClickListener, private val viewHolder: 
         return differ.currentList.size
     }
 
-    fun submitList(list: List<Show>) {
+    fun <T : Show> submitList(list: List<T>) {
         differ.submitList(list)
     }
 

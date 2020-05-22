@@ -5,9 +5,19 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="androidx.lifecycle.LiveData"/>
+        <import type="moreakshay.com.mine.utils.network.Resource"/>
+        <import type="moreakshay.com.mine.ui.domain.Movie"/>
+        <import type="java.util.List"/>
         <variable
-            name="viewModel"
-            type="moreakshay.com.mine.ui.home.movies.MoviesViewModel" />
+            name="upcoming"
+            type="LiveData&lt;Resource&lt;List&lt;Movie>>>" />
+        <variable
+            name="nowplaying"
+            type="LiveData&lt;Resource&lt;List&lt;Movie>>>" />
+        <variable
+            name="popular"
+            type="LiveData&lt;Resource&lt;List&lt;Movie>>>" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -58,7 +68,7 @@
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:listData="@{viewModel.upcomingShows}"
+                    app:listData="@{upcoming.data}"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:listitem="@layout/item_banner" />
 <!--                app:layout_constraintTop_toBottomOf="@+id/tv_header"-->
@@ -84,7 +94,7 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_now"
-                    app:listData="@{viewModel.nowPlayingShows}"
+                    app:listData="@{nowplaying.data}"
                     tools:listitem="@layout/item_show" />
 
                 <TextView
@@ -108,7 +118,7 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_popular"
-                    app:listData="@{viewModel.popularShows}"
+                    app:listData="@{popular.data}"
                     tools:listitem="@layout/item_show"
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
