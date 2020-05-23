@@ -8,7 +8,12 @@ open class ResponseHandler {
         return Resource.success(data)
     }
 
+    fun <T : Any> handleLoading(data: T): Resource<T>{
+        return Resource.loading(data)
+    }
+
     fun <T : Any> handleException(e: Exception, data: T?): Resource<T> {
+        e.printStackTrace()
         return when (e) {
             is HttpException -> Resource.error(getErrorMessage(e.code()), data)
             is SocketTimeoutException -> Resource.error(getErrorMessage(ErrorCodes.SocketTimeOut.code), null)

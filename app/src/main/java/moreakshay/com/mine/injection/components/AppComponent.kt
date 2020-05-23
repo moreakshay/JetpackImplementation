@@ -10,6 +10,7 @@ import moreakshay.com.mine.injection.modules.ViewModelModule
 import moreakshay.com.mine.injection.qualifiers.ApplicationContext
 import moreakshay.com.mine.injection.scopes.ApplicationScope
 import moreakshay.com.mine.ui.home.movies.MoviesFragment
+import moreakshay.com.mine.ui.home.teles.TeleFragment
 
 @ApplicationScope
 @Component(modules = [AppModule::class, RepositoryModule::class, ViewModelModule::class])
@@ -23,4 +24,6 @@ interface AppComponent {
     fun inject(app: MineApplication)
 
     fun inject(fragment: MoviesFragment)
+
+    fun inject(fragment: TeleFragment)
 }

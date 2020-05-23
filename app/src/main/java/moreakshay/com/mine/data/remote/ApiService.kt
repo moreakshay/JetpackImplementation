@@ -1,6 +1,7 @@
 package moreakshay.com.mine.data.remote
 
 import moreakshay.com.mine.data.remote.dtos.MoviesResponse
+import moreakshay.com.mine.data.remote.dtos.TeleResponse
 import retrofit2.http.*
 
 interface ApiService{
@@ -32,9 +33,12 @@ interface ApiService{
     @GET("movie/{movie_id}")
     suspend fun getMovieDetails(@Path("movie_id") id: String)
 
-
-
     //TV
+    @GET("tv/on_the_air")
+    suspend fun getNowPlayingTele(): TeleResponse
+
+    @GET("tv/popular")
+    suspend fun getPopularTele(): TeleResponse
 
     //Profile
 
