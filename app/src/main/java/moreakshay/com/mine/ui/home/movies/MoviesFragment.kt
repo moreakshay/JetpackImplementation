@@ -29,12 +29,11 @@ public class MoviesFragment : Fragment() {
         binding.upcoming = viewModel.upcomingMovies
         binding.nowplaying = viewModel.nowplayingMovies
         binding.popular = viewModel.popularMovies
-        val showAdapter = ShowAdapter(ShowClickListener { show -> Log.d("BHENCHOD", show.getShowName()) })
-        val popAdapter = ShowAdapter(ShowClickListener { show -> Log.d("BHENCHOD", show.getShowName()) })
+        val showAdapter = ShowAdapter(ShowClickListener { show -> Log.d("LOGT", show.getShowName()) })
+        val popAdapter = ShowAdapter(ShowClickListener { show -> Log.d("LOGT", show.getShowName()) })
         binding.rvNow.adapter = showAdapter
         binding.rvPopular.adapter = popAdapter
-        binding.rvBanner.adapter = ShowAdapter(ShowClickListener { show -> Log.d("BHENCHOD", show.getShowName()) }, Constants.BANNER)
+        binding.rvBanner.adapter = ShowAdapter(ShowClickListener { show -> Log.d("LOGT", show.getShowName()) }, Constants.BANNER)
         return binding.root
     }
-
 }

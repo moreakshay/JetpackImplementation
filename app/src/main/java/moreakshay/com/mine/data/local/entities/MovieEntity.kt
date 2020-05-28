@@ -20,12 +20,12 @@ data class MovieEntity(
 fun List<MovieEntity>.asDomainModel(): List<Movie> {
     return map {
         Movie(id = it.id,
-                originalName = it.originalName,
-                posterPath = it.posterPath,
-                backdropPath = it.backdropPath,
-                voteAverage = it.voteAverage,
-                overview = it.overview,
-                releaseDate = it.releaseDate,
+                originalName = it.originalName ?: "",
+                posterPath = it.posterPath ?: "",
+                backdropPath = it.backdropPath ?: "",
+                voteAverage = it.voteAverage.toDouble(),
+                overview = it.overview ?: "",
+                releaseDate = it.releaseDate ?: "",
                 flag = it.flag
         )
     }

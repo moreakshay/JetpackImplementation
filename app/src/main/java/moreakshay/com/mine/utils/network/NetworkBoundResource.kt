@@ -3,13 +3,14 @@ package moreakshay.com.mine.utils.network
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import androidx.lifecycle.map
+import kotlinx.coroutines.Dispatchers
 
 abstract class NetworkBoundResource<ResultType : Any, RequestType : Any> {
 
     private val responseHandler = ResponseHandler()
 
     fun asLiveData() : LiveData<Resource<ResultType>> {
-        return liveData {
+        return liveData(Dispatchers.IO) {
             val disposable = emitSource(loadFromDb().map { responseHandler.handleLoading(it) })
             try {
                 val apiResponse = createCall()
@@ -28,7 +29,7 @@ abstract class NetworkBoundResource<ResultType : Any, RequestType : Any> {
         }
     }
 
-    protected abstract fun saveCallResult(item: RequestType)
+    protected abstract suspend fun saveCallResult(item: RequestType)
 
     protected abstract fun shouldFetch(data: ResultType?): Boolean
 

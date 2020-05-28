@@ -24,8 +24,8 @@ class MineRepository @Inject constructor(val local: MineDatabase, val remote: Ap
 
     suspend fun loadMovies(flag: Int): LiveData<Resource<List<Movie>>> {
         return object : NetworkBoundResource<List<Movie>, MoviesResponse>() {
-            override fun saveCallResult(item: MoviesResponse) {
-                CoroutineScope(Dispatchers.IO).launch { local.movieDao().insertAll(*(item.asMovieEntities(flag))) }
+            override suspend fun saveCallResult(item: MoviesResponse) {
+                local.movieDao().insertAll(*(item.asMovieEntities(flag)))
             }
 
             override fun loadFromDb(): LiveData<List<Movie>> {
@@ -48,7 +48,7 @@ class MineRepository @Inject constructor(val local: MineDatabase, val remote: Ap
 
     suspend fun loadTeles(flag: Int): LiveData<Resource<List<Tele>>> {
         return object : NetworkBoundResource<List<Tele>, TeleResponse>() {
-            override fun saveCallResult(item: TeleResponse) {
+            override suspend fun saveCallResult(item: TeleResponse) {
                 CoroutineScope(Dispatchers.IO).launch { local.teleDao().insertAll(*(item.asTeleEntities(flag))) }
             }
 

@@ -12,6 +12,6 @@ class HomeActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        bnv.setupWithNavController(findNavController(R.id.fr_container))
+        bnv?.setupWithNavController(findNavController(R.id.fr_container))
     }
 }

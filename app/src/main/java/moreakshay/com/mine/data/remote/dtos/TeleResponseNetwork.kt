@@ -47,12 +47,12 @@ data class TeleResponse(
 fun TeleResponse.asTeleEntities(flag: Int): Array<TeleEntity> {
     return results.map {
         TeleEntity(id = it.id,
-                originalName = it.originalName,
-                posterPath = it.posterPath,
-                backdropPath = it.backdropPath,
-                voteAverage = it.voteAverage,
-                overview = it.overview,
-                releaseDate = it.firstAirDate,
+                originalName = it.originalName ?: "",
+                posterPath = it.posterPath ?: "",
+                backdropPath = it.backdropPath ?: "",
+                voteAverage = it.voteAverage.toDouble(),
+                overview = it.overview ?: "",
+                releaseDate = it.firstAirDate ?: "",
                 flag = flag )
     }.toTypedArray()
 }
