@@ -28,7 +28,7 @@ Learning best practices in android. Using Android Architecture Components and Co
   <li>Dagger 2</li>
 </ul>
 <h3>How to use it</h3>
-This repo uses [TMDB API](https://developers.themoviedb.org/3/getting-started/introduction).
+This repo uses <a href="https://developers.themoviedb.org/3/getting-started/introduction">TMDB API.</a>
 <br>In your local.properties add 
 <code>api_key=YOUR_API_KEY</code>
 
