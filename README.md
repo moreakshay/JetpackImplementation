@@ -1,7 +1,7 @@
 # JetpackImplementation
 Learning best practices in android. Using Android Architecture Components and Coroutines.
 <br>This repository follows best practices depicted by the jetpack team in [architecture-components-sample/GithubBrowserSample](https://github.com/android/architecture-components-samples/tree/master/GithubBrowserSample/)
-but it doesn't use Coroutines, which is a big setback.
+but it doesn't use Coroutines.
 <br>Hence I did my best to sum all of them up in one repo.
 
 <h3>Language</h3> 
