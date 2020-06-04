@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="show"
+            type="moreakshay.com.mine.ui.domain.Show" />
+
+        <variable
+            name="clickListener"
+            type="moreakshay.com.mine.ui.home.adapters.ShowClickListener" />
+    </data>
+        <androidx.cardview.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/cv_poster"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_160dp"
+            android:elevation="@dimen/_6dp"
+            android:onClick="@{() -> clickListener.onClick(show)}"
+            android:layout_marginEnd="@dimen/_20dp"
+            app:cardCornerRadius="@dimen/_6dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/text_more"
+                android:gravity="center"
+                android:text="@string/more"
+                android:textAppearance="@style/TextDefault"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/iv_poster"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_160dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/im_login"
+                app:imageUrl="@{show.showBackdropPath}" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_marginStart="@dimen/_20dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginBottom="@dimen/_10dp"
+                android:gravity="center"
+                android:text="@{show.showName}"
+                android:textAppearance="@style/TextItem"
+                />
+
+        </androidx.cardview.widget.CardView>
+</layout>

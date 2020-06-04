@@ -9,4 +9,5 @@
     <color name="background">#F8F8F8</color>
     <color name="text_more">#FECB2F</color>
     <color name="text_item">#222222</color>
+    <color name="bnv_default">#999999</color>
 </resources>
