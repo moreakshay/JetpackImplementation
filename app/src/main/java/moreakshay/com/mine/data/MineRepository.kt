@@ -1,9 +1,6 @@
 package moreakshay.com.mine.data
 
 import androidx.lifecycle.LiveData
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import moreakshay.com.mine.data.dtos.asDomainModel
 import moreakshay.com.mine.data.local.MineDatabase
 import moreakshay.com.mine.data.remote.ApiService
@@ -28,16 +25,16 @@ class MineRepository @Inject constructor(val local: MineDatabase, val remote: Ap
                 local.movieDao().insertAll(*(item.asMovieEntities(flag)))
             }
 
-            override fun loadFromDb(): LiveData<List<Movie>> {
+            override suspend fun loadFromDb(): LiveData<List<Movie>> {
                 return local.movieDao().getMovies(flag).asDomainModel()
             }
 
             override suspend fun createCall(): MoviesResponse {
-                        return when (flag) {
-                            Constants.UPCOMING -> remote.getUpComingMovies()
-                            Constants.NOW_PLAYING -> remote.getNowMovies()
-                            else -> remote.getPopularMovies()
-                        }
+                return when (flag) {
+                    Constants.UPCOMING -> remote.getUpComingMovies()
+                    Constants.NOW_PLAYING -> remote.getNowMovies()
+                    else -> remote.getPopularMovies()
+                }
             }
 
             override fun shouldFetch(data: List<Movie>?): Boolean {
@@ -49,14 +46,14 @@ class MineRepository @Inject constructor(val local: MineDatabase, val remote: Ap
     suspend fun loadTeles(flag: Int): LiveData<Resource<List<Tele>>> {
         return object : NetworkBoundResource<List<Tele>, TeleResponse>() {
             override suspend fun saveCallResult(item: TeleResponse) {
-                CoroutineScope(Dispatchers.IO).launch { local.teleDao().insertAll(*(item.asTeleEntities(flag))) }
+                local.teleDao().insertAll(*(item.asTeleEntities(flag)))
             }
 
             override fun shouldFetch(data: List<Tele>?): Boolean {
                 return true //TODO:return isOnline
             }
 
-            override fun loadFromDb(): LiveData<List<Tele>> {
+            override suspend fun loadFromDb(): LiveData<List<Tele>> {
                 return local.teleDao().getTeles(flag).asDomainModel()
             }
 

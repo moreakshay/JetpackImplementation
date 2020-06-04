@@ -70,4 +70,5 @@ class BannerViewHolder(private var binding: ItemBannerBinding) : RecyclerView.Vi
 
 class ShowClickListener(val clickListener: (show: Show) -> Unit) {
     fun onClick(show: Show) = clickListener(show)
+
 }
