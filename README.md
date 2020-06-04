@@ -29,8 +29,8 @@ Learning best practices in android. Using Android Architecture Components and Co
   <li>Dagger 2</li>
 </ul>
 <h3>How to use it</h3>
-In your local.properties add
-<br>`api_key=YOUR_API_KEY`
+In your local.properties add the following
+<code>api_key=YOUR_API_KEY</code>
 
 
 
