@@ -10,6 +10,7 @@
     <dimen name="_neg24dp">-24dp</dimen>
     <dimen name="_point5dp">.5dp</dimen>
     <dimen name="_point7dp">.7dp</dimen>
+    <dimen name="match_constraint">0dp</dimen>
     <dimen name="_1dp">1dp</dimen>
     <dimen name="_1point8dp">1.8dp</dimen>
     <dimen name="_2dp">2dp</dimen>

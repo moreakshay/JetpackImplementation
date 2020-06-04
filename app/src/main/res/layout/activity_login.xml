@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    tools:context=".login.LoginActivity">
+    tools:context=".ui.login.LoginActivity">
 
     <ImageView
         android:layout_width="@dimen/_100dp"
         android:layout_height="@dimen/_100dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_film_solid"
+        android:src="@drawable/ic_launcher_solid"
         app:layout_constraintBottom_toTopOf="@id/cl_container"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

@@ -1,10 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".home.DetailActivity">
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.home.activities.DetailActivity">
+
+        <ImageView
+            android:id="@+id/iv_poster"
+            android:layout_width="match_parent"
+            android:layout_height="470dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/im_login"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="470dp"
+            android:background="@drawable/gradient_trailer"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_poster"
+            app:layout_constraintLeft_toLeftOf="@+id/iv_poster"
+            app:layout_constraintRight_toRightOf="@+id/iv_poster"
+            app:layout_constraintTop_toTopOf="@+id/iv_poster" />
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/_30dp"
+            android:layout_height="@dimen/_30dp"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:layout_marginRight="@dimen/_20dp"
+            android:layout_marginBottom="@dimen/_30dp"
+            android:textAppearance="@style/TextDefault"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_poster"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:layout_marginRight="@dimen/_20dp"
+            android:layout_marginBottom="@dimen/_10dp"
+            android:textAppearance="@style/TextName"
+            app:layout_constraintBottom_toTopOf="@+id/tv_info"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_full_cast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:text="@string/full_cast_crew"
+            android:textAppearance="@style/TextSubHeader"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_poster" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_crew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_full_cast" />
+
+        <ImageView
+            android:id="@+id/iv_like"
+            android:layout_width="@dimen/_54dp"
+            android:layout_height="@dimen/_54dp"
+            android:layout_marginTop="@dimen/_20dp"
+            android:layout_marginBottom="@dimen/_36dp"
+            android:orientation="horizontal"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/iv_rating"
+            app:layout_constraintTop_toBottomOf="@id/rv_crew" />
+
+        <ImageView
+            android:id="@+id/iv_rating"
+            android:layout_width="@dimen/_54dp"
+            android:layout_height="@dimen/_54dp"
+            android:layout_marginTop="@dimen/_20dp"
+            android:layout_marginBottom="@dimen/_36dp"
+            app:layout_constraintLeft_toRightOf="@+id/iv_like"
+            app:layout_constraintRight_toLeftOf="@+id/iv_watching"
+            app:layout_constraintTop_toBottomOf="@id/rv_crew" />
+
+        <ImageView
+            android:id="@+id/iv_watching"
+            android:layout_width="@dimen/_54dp"
+            android:layout_height="@dimen/_54dp"
+            android:layout_marginTop="@dimen/_20dp"
+            android:layout_marginBottom="@dimen/_36dp"
+            app:layout_constraintLeft_toRightOf="@+id/iv_rating"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_crew" />
+
+        <!--<androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/rb_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/iv_rating"
+            />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
