@@ -1,6 +1,7 @@
 # JetpackImplementation
 Learning best practices in android. Using Android Architecture Components and Coroutines.
 <br>This repository follows best practices depicted by the jetpack team in [architecture-components-sample/GithubBrowserSample](https://github.com/android/architecture-components-samples/tree/master/GithubBrowserSample/) ,unfortunately GithubBrowserSample doesn't include the use of Coroutines.
+
 <br>This repo uses [TMDB API](https://developers.themoviedb.org/3/getting-started/introduction).
 
 <h3>Language</h3> 
