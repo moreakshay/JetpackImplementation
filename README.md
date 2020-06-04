@@ -24,7 +24,7 @@ Learning best practices in android using Android Architecture Components and Cor
 <ul>
   <li>Constraint Layout</li>
   <li>Coroutines</li>
-  <li>Retrofit2.6.0+ (ofc with Coroutines)</li>
+  <li>Retrofit2.6.0+ (with Coroutines)</li>
   <li>Dagger 2</li>
 </ul>
 <h3>How to use it</h3>
