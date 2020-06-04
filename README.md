@@ -22,10 +22,10 @@ Learning best practices in android using Android Architecture Components and Cor
 </ul>
 <h3>Other Components Used</h3>
 <ul>
-  <li>Constraint Layout</li>
-  <li>Coroutines</li>
-  <li>Retrofit2.6.0+ (with Coroutines)</li>
   <li>Dagger 2</li>
+  <li>Coroutines</li>
+  <li>Constraint Layout</li>
+  <li>Retrofit2.6.0+ (with Coroutines)</li>
 </ul>
 <h3>How to use it</h3>
 This repo uses <a href="https://developers.themoviedb.org/3/getting-started/introduction">TMDB API</a>.
