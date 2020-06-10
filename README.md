@@ -5,7 +5,7 @@ Learning best practices in android using Android Architecture Components and Cor
 <h3>Language</h3> 
 -Kotlin
 <h3>Design</h3>
-<a href="https://www.uplabs.com/posts/movies-app-db57e9f2-c0f4-4c94-99c0-e394952751f2">Uplabs: Mao Trailer</a>.
+-Uplabs:<a href="https://www.uplabs.com/posts/movies-app-db57e9f2-c0f4-4c94-99c0-e394952751f2"> Mao Trailer</a>.
 
 <h3>Best Practices for</h3>
   <li>Network calls with the new Retrofit</li>
