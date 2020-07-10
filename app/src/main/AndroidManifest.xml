@@ -13,11 +13,11 @@
         android:roundIcon="@drawable/ic_launcher_line"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="moreakshay.com.mine.ui.intro.MainActivity">
+        <activity android:name="moreakshay.com.mine.ui.features.intro.MainActivity">
         </activity>
-        <activity android:name="moreakshay.com.mine.ui.intro.IntroductionActivity" />
-        <activity android:name="moreakshay.com.mine.ui.login.LoginActivity" />
-        <activity android:name="moreakshay.com.mine.ui.home.activities.HomeActivity" >
+        <activity android:name="moreakshay.com.mine.ui.features.intro.IntroductionActivity" />
+        <activity android:name="moreakshay.com.mine.ui.features.login.LoginActivity" />
+        <activity android:name="moreakshay.com.mine.ui.features.home.activities.HomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -25,9 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="moreakshay.com.mine.ui.home.activities.ListActivity" />
-        <activity android:name="moreakshay.com.mine.ui.home.activities.DetailActivity" />
-        <activity android:name="moreakshay.com.mine.ui.home.activities.SearchActivity"/>
+        <activity android:name="moreakshay.com.mine.ui.features.list.ListActivity" />
+        <activity android:name="moreakshay.com.mine.ui.features.details.DetailActivity" />
+        <activity android:name="moreakshay.com.mine.ui.features.search.SearchActivity"/>
 
         <!--        Receivers-->
         <receiver android:name="moreakshay.com.mine.base.listeners.NetworkBroadcast">

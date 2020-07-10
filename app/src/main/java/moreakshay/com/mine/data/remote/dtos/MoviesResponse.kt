@@ -2,7 +2,7 @@ package moreakshay.com.mine.data.remote.dtos
 
 
 import com.google.gson.annotations.SerializedName
-import moreakshay.com.mine.data.dtos.MovieEntity
+import moreakshay.com.mine.data.local.entities.MovieEntity
 
 data class MoviesResponse(
         @SerializedName("dates")
@@ -62,9 +62,9 @@ fun MoviesResponse.asMovieEntities(flag: Int): Array<MovieEntity> {
                 originalName = it.originalTitle ?: "",
                 posterPath = it.posterPath ?: "",
                 backdropPath = it.backdropPath ?: "",
-                voteAverage = it.voteAverage.toDouble(),
+                vote_average = it.voteAverage.toDouble(),
                 overview = it.overview ?: "",
-                releaseDate = it.releaseDate,
+                release_date = it.releaseDate,
                 flag = flag)
     }.toTypedArray()
 }

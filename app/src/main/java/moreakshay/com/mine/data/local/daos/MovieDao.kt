@@ -1,22 +1,38 @@
 package moreakshay.com.mine.data.local.daos
 
 import androidx.lifecycle.LiveData
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Query
-import moreakshay.com.mine.data.dtos.MovieEntity
-import moreakshay.com.mine.utils.constants.DBConstants
+import moreakshay.com.mine.data.local.entities.MovieEntity
+import moreakshay.com.mine.utils.constants.*
 
 @Dao
 interface MovieDao: BaseDao<MovieEntity> {
-    @Query("SELECT * FROM ${DBConstants.MOVIE_TABLENAME}")
+    @Query("SELECT * FROM $MOVIE_TABLENAME")
     fun getAllMovies(): LiveData<List<MovieEntity>>
 
-    @Query("SELECT * FROM ${DBConstants.MOVIE_TABLENAME} WHERE ${DBConstants.ID} = :movieId")
+    @Query("SELECT * FROM $MOVIE_TABLENAME WHERE $ID = :movieId")
     fun getMovie(movieId: Int): LiveData<MovieEntity>
 
-    @Query("SELECT * FROM ${DBConstants.MOVIE_TABLENAME} WHERE ${DBConstants.FLAG} = :flag")
-    fun getMovies(flag: Int): LiveData<List<MovieEntity>>
+    @Query("SELECT * FROM $MOVIE_TABLENAME WHERE $FLAG = :flag LIMIT :limit")
+    fun getMovies(flag: Int, limit: Int = 10): LiveData<List<MovieEntity>>
 
-    
+    @Query("SELECT * FROM $MOVIE_TABLENAME WHERE $FLAG = :flag ORDER BY CAST($RELEASE_DATE AS FLOAT) ASC LIMIT :limit")
+    fun getNowMovies(flag: Int, limit: Int = 10): LiveData<List<MovieEntity>>
 
+    @Query("SELECT * FROM $MOVIE_TABLENAME WHERE $FLAG = :flag ORDER BY $VOTE_AVERAGE DESC LIMIT :limit")
+    fun getPopularMovies(flag: Int, limit: Int = 10): LiveData<List<MovieEntity>>
+
+    @Query("SELECT * FROM $MOVIE_TABLENAME WHERE $FLAG = :flag ORDER BY $RELEASE_DATE ASC")
+    fun getPagedMovies(flag: Int): PagingSource<Int, MovieEntity>
+
+    @Query("SELECT * FROM $MOVIE_TABLENAME WHERE $FLAG = :flag ORDER BY CAST($RELEASE_DATE AS FLOAT) ASC LIMIT :limit")
+    fun getNowPagedMovies(flag: Int, limit: Int = 20): PagingSource<Int, MovieEntity>
+
+    @Query("SELECT * FROM $MOVIE_TABLENAME WHERE $FLAG = :flag ORDER BY $VOTE_AVERAGE DESC LIMIT :limit")
+    fun getPopPagedMovies(flag: Int, limit: Int = 20): PagingSource<Int, MovieEntity>
+
+    @Query("DELETE FROM $MOVIE_TABLENAME")
+    fun clearMovies()
 }

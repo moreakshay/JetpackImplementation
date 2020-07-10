@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "dfcf4e8dd1c8024d1fb38a551ee4deb2",
+    "identityHash": "050ed4f8d2e56f6e5941a774a45a64db",
     "entities": [
       {
         "tableName": "MovieEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `originalName` TEXT NOT NULL, `posterPath` TEXT NOT NULL, `backdropPath` TEXT NOT NULL, `voteAverage` REAL NOT NULL, `overview` TEXT NOT NULL, `releaseDate` TEXT NOT NULL, `flag` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `originalName` TEXT NOT NULL, `posterPath` TEXT NOT NULL, `backdropPath` TEXT NOT NULL, `vote_average` REAL NOT NULL, `overview` TEXT NOT NULL, `release_date` TEXT NOT NULL, `flag` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -33,8 +33,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "voteAverage",
-            "columnName": "voteAverage",
+            "fieldPath": "vote_average",
+            "columnName": "vote_average",
             "affinity": "REAL",
             "notNull": true
           },
@@ -45,8 +45,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "releaseDate",
-            "columnName": "releaseDate",
+            "fieldPath": "release_date",
+            "columnName": "release_date",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -68,7 +68,7 @@
       },
       {
         "tableName": "TeleEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `originalName` TEXT NOT NULL, `posterPath` TEXT NOT NULL, `backdropPath` TEXT NOT NULL, `voteAverage` REAL NOT NULL, `overview` TEXT NOT NULL, `releaseDate` TEXT NOT NULL, `flag` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `originalName` TEXT NOT NULL, `posterPath` TEXT NOT NULL, `backdropPath` TEXT NOT NULL, `vote_average` REAL NOT NULL, `overview` TEXT NOT NULL, `release_date` TEXT NOT NULL, `flag` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -95,8 +95,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "voteAverage",
-            "columnName": "voteAverage",
+            "fieldPath": "vote_average",
+            "columnName": "vote_average",
             "affinity": "REAL",
             "notNull": true
           },
@@ -107,8 +107,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "releaseDate",
-            "columnName": "releaseDate",
+            "fieldPath": "release_date",
+            "columnName": "release_date",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -127,12 +127,76 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "MovieRemoteKeysEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `prev_key` INTEGER, `next_key` INTEGER, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "prev_key",
+            "columnName": "prev_key",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "next_key",
+            "columnName": "next_key",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "TeleRemoteKeysEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `prev_key` INTEGER, `next_key` INTEGER, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "prev_key",
+            "columnName": "prev_key",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "next_key",
+            "columnName": "next_key",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'dfcf4e8dd1c8024d1fb38a551ee4deb2')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '050ed4f8d2e56f6e5941a774a45a64db')"
     ]
   }
 }

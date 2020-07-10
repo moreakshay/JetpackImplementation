@@ -25,7 +25,7 @@ interface ApiService{
     suspend fun getUpComingMovies(): MoviesResponse
 
     @GET("movie/now_playing")
-    suspend fun getNowMovies(): MoviesResponse
+    suspend fun getNowMovies(@Query("page") page: Int): MoviesResponse
 
     @GET("movie/popular")
     suspend fun getPopularMovies(): MoviesResponse
@@ -39,8 +39,6 @@ interface ApiService{
 
     @GET("tv/popular")
     suspend fun getPopularTele(): TeleResponse
-
-    //Profile
 
     //Credits
 

@@ -6,7 +6,7 @@
             type="moreakshay.com.mine.ui.domain.Show" />
         <variable
             name="clickListener"
-            type="moreakshay.com.mine.ui.home.adapters.ShowClickListener" />
+            type="moreakshay.com.mine.ui.adapters.ShowClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,6 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingEnd="@dimen/_20dp"
+        android:paddingBottom="@dimen/_10dp"
         android:onClick="@{() -> clickListener.onClick(show)}"
         >
 
@@ -41,8 +42,8 @@
 
             <ImageView
                 android:id="@+id/iv_poster"
-                android:layout_width="@dimen/_140dp"
-                android:layout_height="@dimen/_210dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:src="@drawable/im_login"
                 android:scaleType="centerCrop"
                 app:imageUrl="@{show.showPosterPath}"

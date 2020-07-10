@@ -1,5 +1,8 @@
 package moreakshay.com.mine.ui.domain
 
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Movie(val id: Int,
                  val originalName: String,
                  val posterPath: String,
@@ -25,5 +28,3 @@ data class Movie(val id: Int,
 
     override fun getShowFlag() = flag
 }
-
-fun List<Movie>.asShows(): List<Show> = map { it as Show }

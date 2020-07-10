@@ -1,6 +1,8 @@
 package moreakshay.com.mine.ui.domain
 
-interface Show {
+import android.os.Parcelable
+
+interface Show: Parcelable {
     fun getShowId(): Int
     fun getShowName(): String
     fun getShowPosterPath(): String

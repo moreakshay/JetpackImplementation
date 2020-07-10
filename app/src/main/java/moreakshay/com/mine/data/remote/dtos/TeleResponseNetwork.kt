@@ -2,7 +2,7 @@ package moreakshay.com.mine.data.remote.dtos
 
 
 import com.google.gson.annotations.SerializedName
-import moreakshay.com.mine.data.dtos.TeleEntity
+import moreakshay.com.mine.data.local.entities.TeleEntity
 
 data class TeleResponse(
         @SerializedName("page")
@@ -50,9 +50,9 @@ fun TeleResponse.asTeleEntities(flag: Int): Array<TeleEntity> {
                 originalName = it.originalName ?: "",
                 posterPath = it.posterPath ?: "",
                 backdropPath = it.backdropPath ?: "",
-                voteAverage = it.voteAverage.toDouble(),
+                vote_average = it.voteAverage.toDouble(),
                 overview = it.overview ?: "",
-                releaseDate = it.firstAirDate ?: "",
+                release_date = it.firstAirDate ?: "",
                 flag = flag )
     }.toTypedArray()
 }

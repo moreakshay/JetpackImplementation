@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.intro.MainActivity"
+    tools:context=".ui.features.intro.MainActivity"
     android:background="@drawable/gradient"
     >
 

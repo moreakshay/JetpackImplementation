@@ -1,5 +1,8 @@
 package moreakshay.com.mine.ui.domain
 
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Tele(val id: Int,
                 val originalName: String,
                 val posterPath: String,
