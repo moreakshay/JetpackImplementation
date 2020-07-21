@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/moviesFragment"
         android:title="@string/movies"
-        android:icon="@drawable/ic_launcher_line"
+        android:icon="@drawable/ic_movie"
         />
     <item android:id="@+id/teleFragment"
         android:title="@string/tv"

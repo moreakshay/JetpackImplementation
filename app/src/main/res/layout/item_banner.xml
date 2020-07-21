@@ -4,10 +4,12 @@
         <variable
             name="show"
             type="moreakshay.com.mine.ui.domain.Show" />
-
         <variable
             name="clickListener"
             type="moreakshay.com.mine.ui.adapters.ShowClickListener" />
+        <variable
+            name="size"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,12 +31,13 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/iv_poster"
+                android:id="@+id/iv_backdrop"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_160dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/im_login"
-                app:imageUrl="@{show.showBackdropPath}" />
+                app:imageUrl="@{show.showBackdropPath}"
+                app:size="@{size}"/>
 
         </androidx.cardview.widget.CardView>
 

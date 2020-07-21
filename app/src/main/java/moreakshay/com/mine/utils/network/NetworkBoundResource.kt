@@ -25,6 +25,7 @@ abstract class NetworkBoundResource<ResultType : Any, RequestType : Any> {
                     )
                 }
             } catch (e: Exception) {
+                e.printStackTrace()
                 emitSource(loadFromDb().map { responseHandler.handleException(e, it) })
             }
         }

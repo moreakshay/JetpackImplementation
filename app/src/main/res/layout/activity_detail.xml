@@ -7,6 +7,12 @@
         <variable
             name="show"
             type="moreakshay.com.mine.ui.domain.Show" />
+        <variable
+            name="size"
+            type="String" />
+        <variable
+            name="posterSize"
+            type="String" />
     </data>
 
     <ScrollView
@@ -19,12 +25,13 @@
             tools:context=".ui.features.details.DetailActivity">
 
             <ImageView
-                android:id="@+id/iv_poster"
+                android:id="@+id/iv_backdrop"
                 android:layout_width="match_parent"
                 android:layout_height="470dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/im_login"
-                imageUrl="@{show.showBackdropPath}"
+                app:imageUrl="@{show.showBackdropPath}"
+                app:size="@{size}"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -33,10 +40,46 @@
                 android:layout_width="match_parent"
                 android:layout_height="470dp"
                 android:background="@drawable/gradient_trailer"
-                app:layout_constraintBottom_toBottomOf="@+id/iv_poster"
-                app:layout_constraintLeft_toLeftOf="@+id/iv_poster"
-                app:layout_constraintRight_toRightOf="@+id/iv_poster"
-                app:layout_constraintTop_toTopOf="@+id/iv_poster" />
+                app:layout_constraintBottom_toBottomOf="@+id/iv_backdrop"
+                app:layout_constraintLeft_toLeftOf="@+id/iv_backdrop"
+                app:layout_constraintRight_toRightOf="@+id/iv_backdrop"
+                app:layout_constraintTop_toTopOf="@+id/iv_backdrop" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_poster"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_6dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_backdrop"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_backdrop"
+                android:layout_marginLeft="@dimen/_20dp"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_poster"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    app:imageUrl="@{show.showPosterPath}"
+                    app:size="@{posterSize}"
+                    />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@+id/cv_poster"
+                app:layout_constraintTop_toBottomOf="@+id/iv_backdrop"
+                app:layout_constraintBottom_toBottomOf="@+id/cv_poster"
+                android:layout_marginStart="@dimen/_20dp"
+                android:drawableStart="@drawable/ic_star"
+                android:textAppearance="@color/text_item"
+                android:textSize="@dimen/font_20sp"
+                android:drawablePadding="@dimen/_6dp"
+                android:text="@{show.showVoteAverage}"
+                />
 
             <ImageView
                 android:id="@+id/iv_back"
@@ -49,15 +92,18 @@
 
             <TextView
                 android:id="@+id/tv_info"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_20dp"
                 android:layout_marginRight="@dimen/_20dp"
                 android:layout_marginBottom="@dimen/_30dp"
+                android:layout_marginTop="@dimen/_20dp"
                 android:textAppearance="@style/TextDefault"
+                android:textColor="@android:color/black"
                 android:text="@{show.showOverview}"
-                app:layout_constraintBottom_toBottomOf="@+id/iv_poster"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/cv_poster"
+                app:layout_constraintLeft_toLeftOf="parent"
+                />
 
             <TextView
                 android:id="@+id/tv_name"
@@ -68,8 +114,9 @@
                 android:layout_marginBottom="@dimen/_10dp"
                 android:textAppearance="@style/TextName"
                 android:text="@{show.showName}"
-                app:layout_constraintBottom_toTopOf="@+id/tv_info"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/cv_poster"
+                app:layout_constraintLeft_toRightOf="@id/cv_poster"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_backdrop"/>
 
             <TextView
                 android:id="@+id/tv_full_cast"
@@ -80,7 +127,7 @@
                 android:text="@string/full_cast_crew"
                 android:textAppearance="@style/TextSubHeader"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_poster" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_info" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_crew"
@@ -94,7 +141,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 />
 
-            <ImageView
+            <!--<ImageView
                 android:id="@+id/iv_like"
                 android:layout_width="@dimen/_54dp"
                 android:layout_height="@dimen/_54dp"
@@ -130,7 +177,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rv_crew"
                 android:visibility="gone"
-                />
+                />-->
 
             <!--<androidx.appcompat.widget.AppCompatRatingBar
                 android:id="@+id/rb_rating"

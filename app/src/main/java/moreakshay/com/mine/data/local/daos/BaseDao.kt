@@ -10,7 +10,10 @@ interface BaseDao<T> {
     abstract fun insert(obj: T)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(vararg obj: T)
+    fun insertAll(vararg obj: T) : Array<Long>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(list: List<T>) : List<Long>
 
     @Update
     abstract fun update(obj: T)

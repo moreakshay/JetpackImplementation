@@ -20,7 +20,7 @@ data class Movie(val id: Int,
 
     override fun getShowBackdropPath() = backdropPath
 
-    override fun getShowVoteAverage() = voteAverage
+    override fun getShowVoteAverage() = "$voteAverage/10"
 
     override fun getShowOverview() = overview
 

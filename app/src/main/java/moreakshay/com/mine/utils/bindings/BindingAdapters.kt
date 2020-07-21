@@ -9,13 +9,12 @@ import moreakshay.com.mine.R
 import moreakshay.com.mine.ui.adapters.ShowAdapter
 import moreakshay.com.mine.ui.domain.Show
 import moreakshay.com.mine.utils.constants.IMG_BASE_URL
-import moreakshay.com.mine.utils.constants.IMG_SIZE_300
 
 
-@BindingAdapter("imageUrl")
-fun bindImage(imgView: ImageView, imgUrl: String?) {
+@BindingAdapter(value = ["imageUrl", "size"], requireAll = false)
+fun bindImage(imgView: ImageView, imgUrl: String?, size: String) {
     imgUrl?.let {
-        val newUrl = IMG_BASE_URL + IMG_SIZE_300 + imgUrl
+        val newUrl = IMG_BASE_URL + size + imgUrl
         Glide.with(imgView.context)
                 .load(newUrl)
                 .apply(RequestOptions()

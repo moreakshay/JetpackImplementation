@@ -20,7 +20,7 @@ data class Tele(val id: Int,
 
     override fun getShowBackdropPath(): String = backdropPath
 
-    override fun getShowVoteAverage(): Double = voteAverage
+    override fun getShowVoteAverage(): String = "$voteAverage/10"
 
     override fun getShowOverview(): String = overview
 

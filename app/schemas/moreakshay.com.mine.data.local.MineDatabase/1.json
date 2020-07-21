@@ -2,33 +2,33 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "050ed4f8d2e56f6e5941a774a45a64db",
+    "identityHash": "f3a0a73736bc9236367fbf57d488c870",
     "entities": [
       {
         "tableName": "MovieEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `originalName` TEXT NOT NULL, `posterPath` TEXT NOT NULL, `backdropPath` TEXT NOT NULL, `vote_average` REAL NOT NULL, `overview` TEXT NOT NULL, `release_date` TEXT NOT NULL, `flag` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`show_id` INTEGER NOT NULL, `original_name` TEXT NOT NULL, `poster_path` TEXT NOT NULL, `backdrop_path` TEXT NOT NULL, `vote_average` REAL NOT NULL, `overview` TEXT NOT NULL, `release_date` TEXT NOT NULL, `flag` INTEGER NOT NULL, PRIMARY KEY(`show_id`))",
         "fields": [
           {
             "fieldPath": "id",
-            "columnName": "id",
+            "columnName": "show_id",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
             "fieldPath": "originalName",
-            "columnName": "originalName",
+            "columnName": "original_name",
             "affinity": "TEXT",
             "notNull": true
           },
           {
             "fieldPath": "posterPath",
-            "columnName": "posterPath",
+            "columnName": "poster_path",
             "affinity": "TEXT",
             "notNull": true
           },
           {
             "fieldPath": "backdropPath",
-            "columnName": "backdropPath",
+            "columnName": "backdrop_path",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -59,7 +59,7 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "id"
+            "show_id"
           ],
           "autoGenerate": false
         },
@@ -68,29 +68,29 @@
       },
       {
         "tableName": "TeleEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `originalName` TEXT NOT NULL, `posterPath` TEXT NOT NULL, `backdropPath` TEXT NOT NULL, `vote_average` REAL NOT NULL, `overview` TEXT NOT NULL, `release_date` TEXT NOT NULL, `flag` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`show_id` INTEGER NOT NULL, `original_name` TEXT NOT NULL, `poster_path` TEXT NOT NULL, `backdrop_path` TEXT NOT NULL, `vote_average` REAL NOT NULL, `overview` TEXT NOT NULL, `release_date` TEXT NOT NULL, `flag` INTEGER NOT NULL, PRIMARY KEY(`show_id`))",
         "fields": [
           {
             "fieldPath": "id",
-            "columnName": "id",
+            "columnName": "show_id",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
             "fieldPath": "originalName",
-            "columnName": "originalName",
+            "columnName": "original_name",
             "affinity": "TEXT",
             "notNull": true
           },
           {
             "fieldPath": "posterPath",
-            "columnName": "posterPath",
+            "columnName": "poster_path",
             "affinity": "TEXT",
             "notNull": true
           },
           {
             "fieldPath": "backdropPath",
-            "columnName": "backdropPath",
+            "columnName": "backdrop_path",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -121,7 +121,7 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "id"
+            "show_id"
           ],
           "autoGenerate": false
         },
@@ -129,31 +129,64 @@
         "foreignKeys": []
       },
       {
-        "tableName": "MovieRemoteKeysEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `prev_key` INTEGER, `next_key` INTEGER, PRIMARY KEY(`id`))",
+        "tableName": "CreditEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`credit_id` INTEGER PRIMARY KEY AUTOINCREMENT, `job` TEXT NOT NULL, `name` TEXT NOT NULL, `profile_path` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
-            "columnName": "id",
+            "columnName": "credit_id",
             "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "job",
+            "columnName": "job",
+            "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "prev_key",
-            "columnName": "prev_key",
-            "affinity": "INTEGER",
-            "notNull": false
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
           },
           {
-            "fieldPath": "next_key",
-            "columnName": "next_key",
-            "affinity": "INTEGER",
-            "notNull": false
+            "fieldPath": "profile",
+            "columnName": "profile_path",
+            "affinity": "TEXT",
+            "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "id"
+            "credit_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "MovieCreditEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`show_id` INTEGER NOT NULL, `credit_id` INTEGER NOT NULL, PRIMARY KEY(`show_id`, `credit_id`))",
+        "fields": [
+          {
+            "fieldPath": "movieId",
+            "columnName": "show_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "creditId",
+            "columnName": "credit_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "show_id",
+            "credit_id"
           ],
           "autoGenerate": false
         },
@@ -161,31 +194,26 @@
         "foreignKeys": []
       },
       {
-        "tableName": "TeleRemoteKeysEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `prev_key` INTEGER, `next_key` INTEGER, PRIMARY KEY(`id`))",
+        "tableName": "TeleCreditEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`show_id` INTEGER NOT NULL, `credit_id` INTEGER NOT NULL, PRIMARY KEY(`show_id`, `credit_id`))",
         "fields": [
           {
-            "fieldPath": "id",
-            "columnName": "id",
+            "fieldPath": "teleId",
+            "columnName": "show_id",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "prev_key",
-            "columnName": "prev_key",
+            "fieldPath": "creditId",
+            "columnName": "credit_id",
             "affinity": "INTEGER",
-            "notNull": false
-          },
-          {
-            "fieldPath": "next_key",
-            "columnName": "next_key",
-            "affinity": "INTEGER",
-            "notNull": false
+            "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "id"
+            "show_id",
+            "credit_id"
           ],
           "autoGenerate": false
         },
@@ -196,7 +224,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '050ed4f8d2e56f6e5941a774a45a64db')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f3a0a73736bc9236367fbf57d488c870')"
     ]
   }
 }

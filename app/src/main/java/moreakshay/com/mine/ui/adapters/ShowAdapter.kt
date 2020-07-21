@@ -11,6 +11,7 @@ import moreakshay.com.mine.R
 import moreakshay.com.mine.databinding.ItemBannerBinding
 import moreakshay.com.mine.databinding.ItemShowBinding
 import moreakshay.com.mine.ui.domain.Show
+import moreakshay.com.mine.utils.constants.IMG_SIZE_300
 import moreakshay.com.mine.utils.constants.POSTER
 
 class ShowAdapter(private val clickListener: ShowClickListener, private val viewHolder: Int = POSTER) :
@@ -39,7 +40,7 @@ class ShowAdapter(private val clickListener: ShowClickListener, private val view
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is ShowViewHolder -> {
-                holder.bind(differ.currentList[position], clickListener)
+                holder.bind(differ.currentList[position], clickListener, IMG_SIZE_300)
             }
             is BannerViewHolder -> {
                 holder.bind(differ.currentList[position], clickListener)
@@ -67,8 +68,9 @@ class ShowAdapter(private val clickListener: ShowClickListener, private val view
 
 class ShowViewHolder(private var binding: ItemShowBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(show: Show, clickListener: ShowClickListener) {
+    fun bind(show: Show, clickListener: ShowClickListener, size: String = IMG_SIZE_300) {
         binding.show = show
+        binding.size = size
         binding.clickListener = clickListener
         binding.executePendingBindings()
     }
@@ -78,6 +80,7 @@ class BannerViewHolder(private var binding: ItemBannerBinding) : RecyclerView.Vi
 
     fun bind(show: Show, clickListener: ShowClickListener) {
         binding.show = show
+        binding.size = IMG_SIZE_300
         binding.clickListener = clickListener
         binding.executePendingBindings()
     }

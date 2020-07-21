@@ -1,5 +1,6 @@
 package moreakshay.com.mine.data.remote
 
+import moreakshay.com.mine.data.remote.dtos.CreditResponse
 import moreakshay.com.mine.data.remote.dtos.MoviesResponse
 import moreakshay.com.mine.data.remote.dtos.TeleResponse
 import retrofit2.http.*
@@ -41,5 +42,9 @@ interface ApiService{
     suspend fun getPopularTele(): TeleResponse
 
     //Credits
+    @GET("movie/{movie_id}/credits")
+    suspend fun getMovieCredits(@Path("movie_id") id: Int) : CreditResponse
 
+    @GET("tv/{tv_id}/credits")
+    suspend fun getTvCredits(@Path("tv_id") id: Int) : CreditResponse
 }

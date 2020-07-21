@@ -8,6 +8,7 @@ import moreakshay.com.mine.databinding.ItemShowBinding
 import moreakshay.com.mine.ui.adapters.ShowClickListener
 import moreakshay.com.mine.ui.adapters.ShowViewHolder
 import moreakshay.com.mine.ui.domain.Show
+import moreakshay.com.mine.utils.constants.*
 
 class ShowPagingAdapter(private val clickListener: ShowClickListener) : PagingDataAdapter<Show, ShowViewHolder>(DIFF_CALLBACK) {
 
@@ -28,6 +29,6 @@ class ShowPagingAdapter(private val clickListener: ShowClickListener) : PagingDa
     }
 
     override fun onBindViewHolder(holder: ShowViewHolder, position: Int) {
-        holder.bind(getItem(position)!!, clickListener)
+        holder.bind(getItem(position)!!, clickListener, IMG_SIZE_500)
     }
 }

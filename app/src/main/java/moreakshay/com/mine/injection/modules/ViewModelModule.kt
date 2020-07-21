@@ -6,6 +6,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 import moreakshay.com.mine.injection.keys.ViewModelKey
+import moreakshay.com.mine.ui.features.details.DetailViewModel
 import moreakshay.com.mine.ui.features.home.movies.MoviesViewModel
 import moreakshay.com.mine.ui.features.home.teles.TeleViewModel
 import moreakshay.com.mine.ui.features.list.ListViewModel
@@ -28,6 +29,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ListViewModel::class)
     abstract fun bindListViewModel(listViewModel: ListViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailViewModel::class)
+    abstract fun bindDetailViewModel(detailViewModel: DetailViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory

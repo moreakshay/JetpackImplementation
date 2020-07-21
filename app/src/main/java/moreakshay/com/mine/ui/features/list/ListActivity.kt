@@ -28,7 +28,6 @@ class ListActivity : AppCompatActivity() {
     private val binding: ActivityListBinding by lazy {
         DataBindingUtil.setContentView<ActivityListBinding>(this, R.layout.activity_list)
     }
-
     private val TYPE: Int by lazy { intent.getIntExtra(SHOW_TYPE, SHOW_MOVIE) }
     private val FLAG: Int by lazy { intent.getIntExtra(SHOW_FLAG, NOW_PLAYING) }
 
@@ -51,6 +50,7 @@ class ListActivity : AppCompatActivity() {
 
     private val clickListener: (Show) -> Unit = { show ->
         val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra(SHOW_TYPE, TYPE)
         intent.putExtra(SHOW, show)
         startActivity(intent)
     }

@@ -9,6 +9,7 @@ import moreakshay.com.mine.injection.modules.RepositoryModule
 import moreakshay.com.mine.injection.modules.ViewModelModule
 import moreakshay.com.mine.injection.qualifiers.ApplicationContext
 import moreakshay.com.mine.injection.scopes.ApplicationScope
+import moreakshay.com.mine.ui.features.details.DetailActivity
 import moreakshay.com.mine.ui.features.home.movies.MoviesFragment
 import moreakshay.com.mine.ui.features.home.teles.TeleFragment
 import moreakshay.com.mine.ui.features.list.ListActivity
@@ -29,4 +30,6 @@ interface AppComponent {
     fun inject(fragment: TeleFragment)
 
     fun inject(activity: ListActivity)
+
+    fun inject(activity: DetailActivity)
 }

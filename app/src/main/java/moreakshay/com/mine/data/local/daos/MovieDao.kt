@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Query
+import androidx.room.Transaction
+import moreakshay.com.mine.data.local.entities.CreditWithMovie
 import moreakshay.com.mine.data.local.entities.MovieEntity
 import moreakshay.com.mine.utils.constants.*
 
@@ -35,4 +37,9 @@ interface MovieDao: BaseDao<MovieEntity> {
 
     @Query("DELETE FROM $MOVIE_TABLENAME")
     fun clearMovies()
+
+    @Transaction
+    @Query("SELECT * FROM $MOVIE_TABLENAME WHERE $ID = :id")
+    fun getCreditOfMovies(id: Int) : LiveData<CreditWithMovie>
+
 }

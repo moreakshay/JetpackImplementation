@@ -7,7 +7,7 @@ interface Show: Parcelable {
     fun getShowName(): String
     fun getShowPosterPath(): String
     fun getShowBackdropPath(): String
-    fun getShowVoteAverage(): Double
+    fun getShowVoteAverage(): String
     fun getShowOverview(): String
     fun getShowReleaseDate(): String
     fun getShowFlag(): Int

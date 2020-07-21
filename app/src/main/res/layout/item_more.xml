@@ -8,8 +8,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_poster"
-        android:layout_width="@dimen/_140dp"
-        android:layout_height="@dimen/_210dp"
+        android:layout_width="@dimen/_120dp"
+        android:layout_height="@dimen/_200dp"
         android:elevation="@dimen/_6dp"
         app:cardCornerRadius="@dimen/_6dp"
         app:layout_constraintLeft_toLeftOf="parent"
