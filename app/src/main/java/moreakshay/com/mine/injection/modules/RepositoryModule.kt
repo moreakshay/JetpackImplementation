@@ -54,7 +54,7 @@ class RepositoryModule {
                     .addQueryParameter(API_KEY, BuildConfig.API_KEY)
                     .build()
             val request = it.request()
-                    .newBuilder()
+                    .newBuilder() //can addHeader(key, value) here
                     .url(url)
                     .build()
             return@Interceptor it.proceed(request)

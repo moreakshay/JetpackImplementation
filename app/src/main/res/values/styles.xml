@@ -22,8 +22,7 @@
 
 <!--    Bottom Navigation Text Style-->
 
-    <style name="Widget.BottomNavigationView"
-        parent="Widget.Design.BottomNavigationView">
+    <style name="Widget.BottomNavigationView" parent="Widget.Design.BottomNavigationView">
         <item name="fontFamily">@font/regular</item>
         <item name="android:textAllCaps">true</item>
     </style>

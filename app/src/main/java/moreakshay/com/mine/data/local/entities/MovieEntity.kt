@@ -20,7 +20,7 @@ data class MovieEntity(
 
 fun List<MovieEntity>.asDomainModel(): List<Movie> = map { it.asDomainModel() }
 
-fun LiveData<List<MovieEntity>>.asDomainModel(): LiveData<List<Movie>> = Transformations.map(this) { it.asDomainModel() }
+fun LiveData<List<MovieEntity>>. asDomainModel(): LiveData<List<Movie>> = Transformations.map(this) { it.asDomainModel() }
 
 fun MovieEntity.asDomainModel(): Movie =
          Movie(id = id,
