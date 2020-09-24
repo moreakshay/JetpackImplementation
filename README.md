@@ -20,7 +20,7 @@ Learning best practices in android using Android Architecture Components and Cor
   <li>LiveData</li>
   <li>DataBinding</li>
   <li>Room</li>
-  <li>Paging (Work in Progress)</li>
+  <li>Paging</li>
 </ul>
 <h3>Other Components Used</h3>
 <ul>
